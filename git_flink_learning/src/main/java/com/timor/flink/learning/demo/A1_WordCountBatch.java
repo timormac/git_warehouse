@@ -32,12 +32,23 @@ public class A1_WordCountBatch {
 
 
         //这个是匿名内部类的方式
-/*        lineDS.flatMap(
+/*       lineDS.flatMap(
 
                 new FlatMapFunction<String, Tuple2<String,Integer>>() {
 
-        }
-        )*/
+                    @Override
+                    public void flatMap(String s, Collector<Tuple2<String, Integer>> collector) throws Exception {
+
+                        String[] arr = s.split(" ");
+
+                        for (String s1 : arr) {
+
+                            collector.collect( new Tuple2<>(s1,1) );
+
+                        }
+                    }
+                }
+        );*/
 
     }
 
