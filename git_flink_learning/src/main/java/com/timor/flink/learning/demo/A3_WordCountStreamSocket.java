@@ -38,6 +38,8 @@ public class A3_WordCountStreamSocket {
         .keyBy(value -> value.f0)
         .sum(1);
 
+        sum.print();
+
         env.execute();
 
 
