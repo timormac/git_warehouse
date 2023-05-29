@@ -1,8 +1,7 @@
-package com.timor.flink.learning.demo;
+package com.timor.flink.learning.a1wordcountdemo;
 
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -22,7 +21,7 @@ public class A3_WordCountStreamSocket {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        DataStreamSource<String> stream = env.socketTextStream("project1", 7777);
+        DataStreamSource<String> stream = env.socketTextStream("localhost", 7777);
 
         //这里会报错：The generic type parameters of 'Collector' are missing.
         //In many cases lambda methods don't provide enough information for automatic type extraction when Java generics are involved

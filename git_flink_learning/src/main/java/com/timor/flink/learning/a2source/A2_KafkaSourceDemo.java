@@ -1,4 +1,4 @@
-package com.timor.flink.learning.source;
+package com.timor.flink.learning.a2source;
 
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;

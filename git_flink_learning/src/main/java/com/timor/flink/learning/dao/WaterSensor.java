@@ -12,9 +12,9 @@ import java.util.Objects;
  */
 public class WaterSensor {
 
-    private  String id ;
-    private  Long  ts;
-    private  Integer vc;
+    public   String id ;
+    public  Long  ts;
+    public  Integer vc;
 
     public WaterSensor() {
     }

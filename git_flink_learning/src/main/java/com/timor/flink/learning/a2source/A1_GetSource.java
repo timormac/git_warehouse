@@ -1,4 +1,4 @@
-package com.timor.flink.learning.source;
+package com.timor.flink.learning.a2source;
 
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
@@ -29,6 +29,12 @@ public class A1_GetSource {
 
         //从集合中创建DataStream
         DataStreamSource<Integer> collectionDS = env.fromCollection(Arrays.asList(1,2,3,4));
+
+        //第二种从集合中获取
+        DataStreamSource<Integer> source = env.fromElements(1,2,33); // 从元素读
+
+
+
 
         //从文件中创建DataStream
         FileSource<String> fileSource = FileSource.forRecordStreamFormat(new TextLineInputFormat(), new Path("input/word.txt")).build();

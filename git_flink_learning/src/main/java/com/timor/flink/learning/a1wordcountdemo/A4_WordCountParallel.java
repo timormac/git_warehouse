@@ -1,6 +1,5 @@
-package com.timor.flink.learning.demo;
+package com.timor.flink.learning.a1wordcountdemo;
 
-import org.apache.flink.api.common.RuntimeExecutionMode;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;

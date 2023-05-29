@@ -1,4 +1,4 @@
-package com.timor.flink.learning.demo;
+package com.timor.flink.learning.a1wordcountdemo;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.functions.KeySelector;
