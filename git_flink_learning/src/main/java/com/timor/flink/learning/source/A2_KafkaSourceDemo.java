@@ -25,7 +25,7 @@ public class A2_KafkaSourceDemo {
         KafkaSource<String> kafkaSource = KafkaSource.<String>builder() //builder前面要指定范型方法
                 .setBootstrapServers("project1:9092,project2:9092,project3:9092")
                 .setGroupId("aaa")
-                .setTopics("flink_word")
+                .setTopics("flink_word_topic")
                 .setValueOnlyDeserializer(new SimpleStringSchema())//指定从kafka获取的数据的反序列化器
                 .setStartingOffsets(OffsetsInitializer.latest())  //设置消费起始offset
                 .build();
