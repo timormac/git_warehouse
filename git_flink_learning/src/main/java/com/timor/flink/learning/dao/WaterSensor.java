@@ -10,6 +10,14 @@ import java.util.Objects;
  * @Date: 2023/5/29 09:15
  * @Version:1.0
  */
+
+/*Flink对POJO类型的要求如下：
+
+        l 类是公有（public）的
+        l 有一个无参的构造方法
+        l 所有属性都是公有（public）的
+        l 所有属性的类型都是可以序列化的
+        并且实现了searilized接口*/
 public class WaterSensor {
 
     public   String id ;
@@ -17,6 +25,7 @@ public class WaterSensor {
     public  Integer vc;
 
     public WaterSensor() {
+
     }
 
     public WaterSensor(String id, Long ts, Integer vc) {

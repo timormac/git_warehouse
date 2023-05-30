@@ -1,9 +1,7 @@
 package com.timor.flink.learning.a3calculateoprater;
 
 import com.timor.flink.learning.dao.WaterSensor;
-import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.common.typeinfo.Types;
-import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SideOutputDataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
@@ -20,7 +18,7 @@ import org.apache.flink.util.OutputTag;
  * @Date: 2023/5/29 17:04
  * @Version:1.0
  */
-public class A4_SteamSplitUnion {
+public class A4_StreamSplit {
 
     public static void main(String[] args) throws Exception {
 
@@ -33,7 +31,7 @@ public class A4_SteamSplitUnion {
         OutputTag s1 = new OutputTag("s1stream", Types.POJO(WaterSensor.class));
         OutputTag s2 = new OutputTag("s2stream", Types.POJO(WaterSensor.class));
 
-        //分流侧输出流,返回的是主流
+        //分流侧输出流,返回的是主流，process和flatmap一样都有collector
         SingleOutputStreamOperator<WaterSensor> process = map.process(new ProcessFunction<WaterSensor, WaterSensor>() {
             @Override
             public void processElement(WaterSensor value, Context ctx, Collector<WaterSensor> out) throws Exception {
