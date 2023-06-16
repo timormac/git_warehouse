@@ -18,7 +18,7 @@ import org.apache.flink.util.OutputTag;
  * @Date: 2023/5/29 17:04
  * @Version:1.0
  */
-public class A4_StreamSplit {
+public class A4_OutPutStream {
 
     public static void main(String[] args) throws Exception {
 

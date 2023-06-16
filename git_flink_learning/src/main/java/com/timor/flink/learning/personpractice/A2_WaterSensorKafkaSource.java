@@ -8,5 +8,5 @@ package com.timor.flink.learning.personpractice;
  * @Date: 2023/5/30 17:29
  * @Version:1.0
  */
-public class A2_WaterSensorKafkaSourece {
+public class A2_WaterSensorKafkaSource {
 }

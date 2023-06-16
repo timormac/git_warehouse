@@ -41,7 +41,8 @@ public class A1_GetSource {
         DataStreamSource<String> fileDS = env.fromSource(fileSource, WatermarkStrategy.noWatermarks(), "file");
 
         //从socket获取
-        DataStreamSource<String> stream = env.socketTextStream("project1", 7777);
+        //nc -lk 7777
+        DataStreamSource<String> stream = env.socketTextStream("localhost", 7777);
 
         //从kafka获取
         KafkaSource<String> kafkaSource = KafkaSource.<String>builder() //builder前面要指定范型方法

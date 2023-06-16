@@ -21,7 +21,7 @@ import java.util.Map;
  * @Date: 2023/5/30 10:33
  * @Version:1.0
  */
-public class A7_StreamJoinDeomo {
+public class A7_StreamJoinDemo {
 
     public static void main(String[] args) throws Exception {
 

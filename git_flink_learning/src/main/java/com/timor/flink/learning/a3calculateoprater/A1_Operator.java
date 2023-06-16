@@ -53,7 +53,11 @@ public class A1_Operator {
         KeyedStream<WaterSensor, String> keyBy = map.keyBy((WaterSensor sensor) -> sensor.id);
 
 
-        //sum,max,reduce再议
+        //sum,max,reduce
+
+
+
+
 
         //打印结果很奇怪,env的实际代码是在exute执行，前面的分割线先执行了
         env.execute();
