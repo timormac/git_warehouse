@@ -40,7 +40,7 @@ public class B1_WindowDelayData {
 
         WatermarkStrategy<WaterSensor> strategy = WatermarkStrategy
                 .<WaterSensor>forBoundedOutOfOrderness(Duration.ofSeconds(2)) //水位线延迟2s更新
-                .withIdleness(Duration.ofSeconds(6)) //空闲等待时间6s
+                .withIdleness(Duration.ofSeconds(6)) //空闲等待时间6s,到6s自动更新水位线
                 .withTimestampAssigner(new SerializableTimestampAssigner<WaterSensor>() {
                     @Override
                     public long extractTimestamp(WaterSensor element, long recordTimestamp) {

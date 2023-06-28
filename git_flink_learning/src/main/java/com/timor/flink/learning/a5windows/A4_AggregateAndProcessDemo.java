@@ -27,24 +27,14 @@ public class A4_AggregateAndProcessDemo {
 
     public static void main(String[] args) throws Exception {
 
-        //ProcessWindowFunciton全窗口函数，是必须数据全来了之后，先缓存起来，然后等10s窗口结束统一计算
-        //aggregate是来一条算一条，多个数据进来只返回一条数据。
-        //ProcessWindowFunciton数据来了先不算，先缓存，等到窗口时间到了，把10s内的数据统一计算
-        //Process可以获取到上下文
-        //两者结合使用
-        //还是没想明白区别
-        /**
-         * 增量聚合 Aggregate + 全窗口 process
-         * 1、增量聚合函数处理数据： 来一条计算一条
-         * 2、窗口触发时， 增量聚合的结果（只有一条） 传递给 全窗口函数
-         * 3、经过全窗口函数的处理包装后，输出
-         *
-         * 结合两者的优点：
-         * 1、增量聚合： 来一条计算一条，存储中间的计算结果，占用的空间少
-         * 2、全窗口函数： 可以通过 上下文 实现灵活的功能
-         */
 
-
+        /*
+        *AggregateAndProcess和Agg与process的区别
+        *process会把所有数据先缓存，当窗口结束时统一计算，并且能拿到context
+        *aggregate来一条算一条，是按key聚合最后每种ke，只返回一条数据
+        *2者结合,先执行aggregate，来一条算一条，然后agg将result方法的结果传递给process的iterator
+        * 所以process中的Iterable<String> elements只有一条数据,然后通过out.collect来输出
+        */
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // nc -lk 7777
@@ -94,6 +84,8 @@ public class A4_AggregateAndProcessDemo {
         }
     }
 
+    //第一个范型是In的类型，与Aggregate结合就是Aggregate的输出类型，第二范型是输出类型
+    //第三个范型是keyBy时的key的类型，第4个范型是窗口类型
     static class InnerProcessWindow extends ProcessWindowFunction<String,String,String,TimeWindow>{
 
         @Override

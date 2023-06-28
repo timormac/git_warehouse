@@ -17,10 +17,7 @@ public class TestDebug {
     public static void main(String[] args) throws Exception {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        DataStreamSource<String> ds = env.fromElements("a");
-        SingleOutputStreamOperator<String> map = ds.map(s -> s + "1");
-        DataStreamSink<String> print = map.print();
-        env.execute();
+
 
     }
 
